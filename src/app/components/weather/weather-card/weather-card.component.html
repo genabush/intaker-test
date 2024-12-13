@@ -1,0 +1,15 @@
+<h2 class="weather-card__title">{{ title }}</h2>
+<mat-card *ngIf="weather" class="weather-card" appearance="outlined">
+  <mat-card-content class="weather-card__inner">
+    <h3 class="weather-card__date">Date: {{ weather.dt * 1000 | date: 'dd/MM/yyyy EEEE' }}</h3>
+    <span class="weather-card__item"><strong>Temperature:</strong> {{ weather.main?.temp }} <sup>o</sup>C</span>
+    <span class="weather-card__item"><strong>Max Temperature:</strong> {{ weather.main?.temp_max }}
+      <sup>o</sup>C</span>
+    <span class="weather-card__item"><strong>Min Temperature:</strong> {{ weather.main?.temp_min }}
+      <sup>o</sup>C</span>
+    <span class="weather-card__item"><strong>Humidity:</strong> {{ weather.main?.humidity }} %</span>
+    <span class="weather-card__item"><strong>Pressure:</strong> {{ weather.main?.pressure }} hPa</span>
+    <span class="weather-card__item"><strong>Description:</strong> {{ weather.weather?.[0]?.description }}</span>
+  </mat-card-content>
+</mat-card>
+

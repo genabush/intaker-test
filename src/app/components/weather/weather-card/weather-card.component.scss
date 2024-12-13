@@ -1,0 +1,24 @@
+.weather-card {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__date {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: var(--mat-sys-primary);
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__item, &__title {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

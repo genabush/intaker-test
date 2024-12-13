@@ -1,0 +1,6 @@
+<h2 class="weather-card-list-title">5-Day Weather Forecast in {{ currentCity }} on 11am</h2>
+<ul class="weather-card-list">
+  <li class="weather-card-list__item" *ngFor="let weather of weatherPodcast;  trackBy: trackByFn">
+    <app-weather-card [weather]="weather"></app-weather-card>
+  </li>
+</ul>

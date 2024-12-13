@@ -1,0 +1,10 @@
+<ng-container *ngIf="favoritesCities?.length">
+  <button type="button" [matMenuTriggerFor]="menu" mat-flat-button>Show favourites cities</button>
+  <mat-menu #menu="matMenu">
+  <span (click)="selectFavoriteCity(favoritesCity)" mat-menu-item class="favorite-cities-list__item"
+        *ngFor="let favoritesCity of favoritesCities">
+    {{ favoritesCity }}
+  </span>
+  </mat-menu>
+</ng-container>
+

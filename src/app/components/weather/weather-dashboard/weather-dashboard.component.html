@@ -1,0 +1,15 @@
+<div class="container weather-dashboard">
+  <h1 class="weather-dashboard__title">Weather Forecast</h1>
+  <app-weather-search-form (addCityToFavoritesEmit)="addCityToFavorites($event)"
+                           (searchWeatherEmit)="searchWeather($event)"
+                           [weatherPodcast]="weatherPodcast"
+                           [favoritesCities]="favoritesCities">
+  </app-weather-search-form>
+  <app-weather-card class="w-100" *ngIf="currentWeather && Object.keys(currentWeather)?.length"
+                    [title]="'Current Weather in ' + currentCity"
+                    [weather]="currentWeather">
+  </app-weather-card>
+  <app-weather-card-list class="w-100" *ngIf="weatherPodcast?.length" [currentCity]="currentCity"
+                         [weatherPodcast]="weatherPodcast">
+  </app-weather-card-list>
+</div>

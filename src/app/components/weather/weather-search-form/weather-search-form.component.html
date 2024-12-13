@@ -1,0 +1,27 @@
+<form *ngIf="setCurrentCityForm" class="weather-search-form" [formGroup]="setCurrentCityForm"
+      (ngSubmit)="searchWeather()">
+  <div class="weather-search-form__group">
+    <mat-form-field class="weather-search-form__input">
+      <mat-label>City</mat-label>
+      <input [formControlName]="'city'" matInput type="text" [errorStateMatcher]="matcher">
+      <button type="button" (click)="resetForm()" *ngIf="setCurrentCityForm.valid" matSuffix
+              mat-icon-button
+              aria-label="Clear">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button [disabled]="setCurrentCityForm.invalid" type="submit" mat-flat-button>Choose city</button>
+  </div>
+  <div>
+    <mat-error *ngIf="city?.dirty && city?.hasError('required')">Please enter city</mat-error>
+    <mat-error *ngIf="city?.dirty && city?.hasError('minlength')">City should be at least two characters</mat-error>
+  </div>
+  <div class="weather-search-form__btns">
+    <app-favorites-list class="weather-search-form__btns-item" [favoritesCities]="favoritesCities"></app-favorites-list>
+    <button *ngIf="weatherPodcast?.length  " type="button"
+            class="weather-search-form__btns-item" mat-flat-button
+            (click)="addCityToFavorites()">
+      Add to favorites cities list
+    </button>
+  </div>
+</form>
