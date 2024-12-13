@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+// components
+import { WeatherDashboardComponent } from './components/weather/weather-dashboard/weather-dashboard.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  standalone: true,
+  imports: [WeatherDashboardComponent],
 })
 export class AppComponent {
-  title = 'intaker-test';
 }
